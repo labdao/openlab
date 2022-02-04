@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@": ["src"],
+			"@lib": ["src/lib"],
+			"@lib/*": ["src/lib/*"],
+			// "@plasmid": ["node_modules/plasmid"],
+			"@plasmid": ["src/plasmid"],
+			"@modules": ["node_modules"],
+		}
+	},
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
+}

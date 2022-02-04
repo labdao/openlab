@@ -1,0 +1,120 @@
+
+
+/* this file overrides default Tailwind styling ??
+
+  - this file is watched and converted by PostCSS
+
+  Tailwind tends to override some things like link styling:
+  https://stackoverflow.com/questions/63883580/tailwind-css-how-to-style-a-href-links-in-react 
+
+*/
+
+
+// @import '@fontsource/inter';
+@import '@fontsource/inter/300';
+@import '@fontsource/inter/400';
+@import '@fontsource/inter/700';
+/* @import '@fontsource/fira-mono'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+// @import './lib/themes/plasmid';
+// @import './lib/themes/sveltekit';
+
+
+// include coeur templates if needed; treated as a separate theme
+// @import './lib/themes/coeur';
+
+@import './lib/themes/elements';
+
+@layer base {
+  ._content {
+    @apply relative max-w-7xl mx-auto p-4 w-full h-full
+  }
+
+  ol, ul {
+    @apply list-inside
+  }
+  ul {
+    @apply list-disc
+  }
+  ol {
+    @apply list-decimal
+  }
+}
+
+
+
+
+/* 
+
+
+  Typography
+
+
+*/
+/* sets base font size for tw */
+html {
+  font-size: 1rem
+}
+
+.headline {
+  @apply font-display;
+  text-rendering: geometricprecision;
+}
+
+h1 {
+  @apply text-5xl leading-tight lg:text-6xl lg:leading-tight pb-8
+}
+  h1.article-title  {
+    @apply text-6xl md:text-5xl font-display leading-tight pb-8
+  }
+h2 {
+  @apply text-5xl md:text-4xl pb-6
+}
+  *>h1,*>h2,*>h3,*>h4,*>h5,*>h6 { 
+    @apply pt-12
+  }
+
+h3 {
+  @apply text-4xl md:text-3xl  pb-6
+}
+h4 {
+  @apply text-2xl pb-4
+}
+h5 {
+  @apply font-bold pb-4
+}
+p {
+  @apply pb-4
+}
+
+a {
+  @apply underline text-blue-500;
+}
+  a:hover {
+    @apply underline text-blue-800;
+  }
+
+.border-r-half {
+  border-right-width: 0.5px
+}
+.border-b-half {
+  border-bottom-width: 0.5px
+}
+
+
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+

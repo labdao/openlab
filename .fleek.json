@@ -1,0 +1,10 @@
+{
+ "build": {
+   "image": "node:14",
+   "command": "npm install && npm run build",
+   "publicDir": "build",
+   "environment": {
+     "SOME_ENV": "Build finished!"
+   }
+ }
+}

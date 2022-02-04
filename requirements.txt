@@ -1,0 +1,6 @@
+python-multipart
+fastapi
+uvicorn
+biopython == 1.79
+requests == 2.9.1
+python-dotenv

@@ -1,0 +1,65 @@
+
+
+// cards
+._card {
+  @apply block rounded border-gray-200 shadow-md bg-white;
+}
+
+// Badges ("tags")
+._badge, ._tag {
+  @apply text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline rounded // font-bold bg-blue-600 text-white 
+}
+._badge-blue {
+  @apply text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline rounded bg-blue-600 text-white // font-bold
+}
+
+
+._input-text {
+  @apply 
+    mt-1
+    block
+    w-full
+    rounded-md
+    bg-gray-100
+    border-transparent
+    border-2 border-transparent
+    hover:border-blue-500 hover:border-2
+    focus:outline-none focus:ring-0
+}
+
+
+
+
+
+
+
+
+._spinner {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
