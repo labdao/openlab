@@ -6,6 +6,7 @@ import { getWorkflowBySlug } from '@lib/project/board/workflows';
 export const get = async ({ params }) => {
 
   let data = await getWorkflowBySlug(params.slug)
+
   return {
     body: data,
   };

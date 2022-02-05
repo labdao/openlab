@@ -1,7 +1,6 @@
 
 <script context="module">
   export const load = async ({ params, fetch }) => {
-    const currentCategory = params.category
     const response = await fetch(`/api/v0/bounties/${params.bountyId}`)
     const items = await response.json()
 

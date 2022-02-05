@@ -8,7 +8,8 @@
       <a class="font-bold" href="https://openlab-yawnxyz.vercel.app" target="_blank">Github</a>
     </p>
     <p>
-      <a class="font-bold" href="" target="_blank">Notion Project Page</a>
+      <!-- <a class="font-bold" href="" target="_blank">Notion Project Page</a> -->
+      <a class="font-bold" href="https://www.notion.so/Technology-4384a80c599145999d70a85134664517" target="_blank">Notion</a>
     </p>
 
   </div>

@@ -286,8 +286,10 @@ export const flattenTable = (table) => {
 }
 
 export const flattenRecord = (record) => {
-  return {
-    ...record.fields,
-    id: record.id,
-  }
+  if(record)
+    return {
+      ...record.fields,
+      id: record.id,
+    }
+  return record
 }
