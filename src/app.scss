@@ -79,9 +79,8 @@ h2 {
   *>h1,*>h2,*>h3,*>h4,*>h5,*>h6 { 
     @apply pt-12
   }
-
 h3 {
-  @apply text-4xl md:text-3xl  pb-6
+  @apply text-4xl md:text-3xl pb-6
 }
 h4 {
   @apply text-2xl pb-4
@@ -89,6 +88,10 @@ h4 {
 h5 {
   @apply font-bold pb-4
 }
+h6 {
+  @apply text-sm font-bold text-slate-600 pb-4 uppercase tracking-wider
+}
+
 p {
   @apply pb-4
 }

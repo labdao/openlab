@@ -1,7 +1,7 @@
 
-# labDAO Bio Bounty Board
+# openLAB by labDAO
 
-This is a very dirty MVP! This is the "Marketplace" or "bounty board" for requesting and deliverin work
+This is a very dirty MVP! This is the "Marketplace" or "bounty board" for requesting and delivering wet and dry lab work
 
 - Uses Airtable API for rapid prototyping. Will use blockchain in the future, but for now: https://airtable.com/shrzaGaGW3RSUMN5h 
 - Deployed on Vercel since we need serverless functions

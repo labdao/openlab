@@ -1,6 +1,11 @@
 
+
+import JSON5 from 'json5'
+
 import { cacheCheck, cacheSet } from "$utils/cache"
 import { getTable, checkExistence, addRecord, flattenRecord, flattenTable } from "$utils/airfetch"
+import { getBountyById, setBountyCompleteById } from "$lib/project/board/bounties"
+import { getWorkflowBySlug } from "$lib/project/board/workflows"
 
 
 export const getSubmissions = async () => {
@@ -70,6 +75,24 @@ export const createSubmission = async (data) => {
       insertOptions: ['typecast'], // lets you insert w/ name, but really powerful and lets you create new workflows by accident
     },
   )
+
+  // get the bounty
+  // todo: process multiple bounties in the future
+  let bounty = await getBountyById(record.fields['Bounties:Id'])
+
+  // get the workflow
+  let workflow = await getWorkflowBySlug(bounty['Workflows:Slug'])
+  let workflowSettings
+
+  if(workflow && workflow.Settings) {
+    workflowSettings = JSON5.parse(workflow.Settings)
+  }
+
+  // if workflow is auto close, we close the bounty here
+  if (workflowSettings.completeOnSubmission) {
+    // close bounty
+    setBountyCompleteById(bounty.id)
+  }
 
   return record.fields
 }

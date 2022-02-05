@@ -228,6 +228,8 @@ const getTables = async (bases = [{
 // tableName: name of table
 /* examples of Payload (partial/translation of the data obj)
 
+  ** if recordId given, will overwrite existing record instead! 
+
   payload: {
     'Message': data['comment'],
     'Attendee': data['recordId'] ? [data['recordId']] : null,

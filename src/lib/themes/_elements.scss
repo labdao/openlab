@@ -15,8 +15,7 @@
 
 
 ._input-text {
-  @apply 
-    mt-1
+  @apply
     block
     w-full
     rounded-md
@@ -30,7 +29,12 @@
 
 
 
-
+span.label, label {
+  @apply text-gray-700 mb-2 inline-block
+}
+  label > span {
+    @apply text-gray-700 mb-2 inline-block
+  }
 
 
 

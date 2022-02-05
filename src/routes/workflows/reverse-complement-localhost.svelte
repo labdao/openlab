@@ -83,7 +83,7 @@
 
   {#if bounty}
     <div class="mt-16 block max-w-full">
-      <Bounty {bounty} {Submissions} showLoadingSubmissions={isWaiting} showInput={true} showSubs={true} />
+      <Bounty {bounty} {submissions} showLoadingSubmissions={isWaiting} showInput={true} showSubs={true} />
     </div>
   {/if}
 </div>
@@ -96,12 +96,11 @@
   import {marked} from 'marked'
 
   import Bounty from '$lib/project/board/components/Bounty.svelte'
-  import { checkForSubmissions } from '$lib/project/board/board'
-  import { writable } from 'svelte/store'
+  import { getSubmissionsByBountyId } from '$lib/project/board/board'
 
-  export let workflow, bounty, isSubmitted, isWaiting
+  export let workflow, bounty, isSubmitted, isWaiting, submissions
   export let sequence=JSON5.parse(workflow.InputExample).sequence||'CATATTAC', requester='yawnxyz'
-  export let Submissions = writable()
+
 
   async function createBounty() {
     console.log('Creating Bounty')
@@ -128,6 +127,7 @@
 
 
   async function pingEndpoint() {
+
     console.log('Pinging Endpoint:', workflow.Endpoint, bounty)
     // ping the endpoint to start doing async work, if it exists, w/ a GET request
     if(workflow.Endpoint) {
@@ -136,6 +136,26 @@
 
     return true
   }
+
+
+
+function checkSubmission(){
+  const interval = setInterval(async function(){
+    const response = await getSubmissionsByBountyId(bounty.id)
+    console.log('--- response', response)
+    if(response && response.length > 0) {
+      submissions = response
+      clearInterval(interval)
+    }
+  }, 1000)
+}
+
+
+function jsonCleanStr(jsonStr) {
+  return JSON.stringify(JSON5.parse(jsonStr),null,2)
+}
+
+
 
 
   async function handleSubmit(e) {
@@ -149,11 +169,10 @@
         await pingEndpoint()
       } catch(e) {}
 
-      // checkSubmission()
-      checkForSubmissions(bounty.id, Submissions)
+      checkSubmission()
 
     } catch(err) {
       console.error('Request error:', err)
     }
-}
+  }
 </script>

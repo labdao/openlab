@@ -24,8 +24,11 @@
 <article class="_content">
 
   <h1>
-    LabDAO Bioinformatics Workflows
+    openLAB
   </h1>
+  <p>
+    The TaskRabbit for wet- and dry-labs across the world.
+  </p>
 
   <h3>Workflows</h3>
   <div class="inline-grid gap-4 grid-cols-1 md:grid-cols-2">

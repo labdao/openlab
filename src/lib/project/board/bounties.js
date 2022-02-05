@@ -1,6 +1,6 @@
 
 // import { cacheCheck, cacheSet } from "$utils/cache"
-import { getTable, checkExistence, addRecord, flattenRecord, flattenTable } from "$utils/airfetch"
+import { getTable, checkExistence, addRecord, flattenRecord, flattenTable, saveRecord } from "$utils/airfetch"
 
 
 export const getBounties = async (view='Grid view') => {
@@ -47,6 +47,10 @@ export const getLatestBountyBySlug = async (slug) => {
 }
 
 
+export const setBountyCompleteById = async (id) => {
+  let record = await addRecord('Bounties', {Status: "Completed"}, id)
+  return flattenRecord(record)
+}
 
 
 

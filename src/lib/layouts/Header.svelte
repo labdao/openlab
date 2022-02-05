@@ -1,6 +1,6 @@
 
 <script>
-	import { page } from '$app/stores';
+	// import { page } from '$app/stores';
 	import logo from '../../../static/labdao-logo-wip.png'; // static necessary for ipfs
 
 	import Desktop from '$lib/components/shared/MenuDesktop.svelte';
@@ -9,7 +9,7 @@
 </script>
 
 
-<Desktop {logo} {page} />
+<Desktop {logo} />
 <!-- <Mobile {logo} {page} /> -->
 
 <!-- 

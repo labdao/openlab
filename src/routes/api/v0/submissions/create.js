@@ -22,7 +22,6 @@ export const post = async ({ request }) => {
   const input = await request.json();
   let data = await createSubmission(input)
 
-  // do we close the bounty here? are all bounties technically just open?
   return {
     body: data,
   };

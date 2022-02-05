@@ -1,7 +1,7 @@
 
 <script>
     import SvelteSeo from 'svelte-seo'
-    import { head, seo } from '$lib/project/example/settings.js'
+    import { head, seo } from '$lib/project/board/settings.js'
 
     export const title = ''
     export const description = ''

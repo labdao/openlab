@@ -5,10 +5,10 @@ import { getTable, checkExistence, flattenRecord, flattenTable } from "$utils/ai
 
 export const getWorkflows = async () => {
 
-  const _cacheStr = `workflows`
-  if (cacheCheck(_cacheStr)) return cacheCheck(_cacheStr)
+  // const _cacheStr = `workflows`
+  // if (cacheCheck(_cacheStr)) return cacheCheck(_cacheStr)
 
-  let table = await getTable('Workflows', { view: 'Published' })
+  let table = await getTable('Workflows', { view: 'Published' }, false)
 
   // let finalObj = {
   //   name: 'workflows',

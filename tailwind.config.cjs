@@ -55,6 +55,10 @@ module.exports = {
         '1-2': '1fr 2fr',
         '1-3': '1fr 3fr',
         '2-3': '2fr 3fr',
+        '1-auto': '1fr auto',
+        'auto-1': 'auto 1fr',
+        '2-auto': '2fr auto',
+        'auto-2': 'auto 2fr',
       },
       typography: {
         DEFAULT: {

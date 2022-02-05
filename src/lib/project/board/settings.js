@@ -6,11 +6,11 @@ import { writable, get } from 'svelte/store';
 // this uses svelte-seo schema
 export let head = {
   baseUrl: import.meta.env.VITE_BASE_URL,
-  title: "Sveltekit Starter",
-  description: "This is a starter",
-  url: "https://www.example.com/articles/article-title",
+  title: "openLAB::labDAO",
+  description: "The open source operating system for biology",
+  url: "https://openlab-yawnxyz.vercel.app/",
   // canonical: import.meta.env ? import.meta.env.VITE_SITE_URL : 'https://www.example.com', // breaks on vercel
-  canonical: 'https://www.example.com',
+  canonical: 'https://openlab-yawnxyz.vercel.app/',
   // tags: ["Tag A"]
   pageName: '',
   color: '#5432CA',
@@ -18,13 +18,12 @@ export let head = {
   author: 'Jan Zheng',
   ico: '/favicon.ico',
   image: {
-    url: "/pd_share.jpg",
-    width: 850,
-    height: 650,
-    alt: "Alt text for the card!",
+    url: "/labdao-header.png",
+    width: 1500,
+    height: 500,
+    alt: "LabDAO openLAB",
   },
   meta: [
-    { hid: 'google-site-verification', name: 'google-site-verification', content: "FV3L35TjM9haadbuZvHLDz2n-I1KUbN_gYqM3cIH0Wk" },
   ],
 }
 head = { ...head,
