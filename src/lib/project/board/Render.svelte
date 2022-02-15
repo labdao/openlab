@@ -35,12 +35,15 @@
 <!-- </div> -->
 <script>
     import ReverseComplement from './flowblocks/ReverseComplement.svelte'
+    import AlphaFold from './flowblocks/AlphaFold.svelte'
 
     export let workflow = {}
 
     const components = {
         'reverse-complement': ReverseComplement,
         'reverse-complement-localhost': ReverseComplement,
+        'alphafold': AlphaFold,
+        'alphafodl': AlphaFold,
     }
 
 </script>

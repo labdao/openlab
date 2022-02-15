@@ -32,19 +32,11 @@
       </div>
       {#if showInput}
         <div class="mt-4">
-          <span class="label" >Input</span>
+          <label for="output" class="_form-label">Input</label>
           <textarea
+            id="output"
             value={jsonCleanStr(item.Input)}
-            class="
-              w-full
-              font-mono
-              rounded-md
-              bg-gray-100
-              border-transparent
-              border-2 border-transparent
-              hover:border-blue-500 hover:border-2
-              focus:outline-none focus:ring-0
-            "
+            class="_form-textarea font-mono"
             rows="6"
           ></textarea>
         </div>

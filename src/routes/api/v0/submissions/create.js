@@ -1,4 +1,4 @@
-import { createSubmission } from '@lib/project/board/submissions';
+import { createSubmission } from '@lib/project/board/submissions'
 
 
 // TESTING ONLY
@@ -28,3 +28,16 @@ export const post = async ({ request }) => {
 
 };
 
+
+// preflight
+export const options = async ({ request }) => {
+  return {
+    headers: {
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Accept, X-Requested-With, Content-type',
+    },
+    body: "ok",
+  };
+};

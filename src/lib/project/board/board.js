@@ -35,12 +35,18 @@ export const getSubmissionsByBountyId = async (bountyId) => {
 // pass submissions in as a svelte writable
 export const checkForSubmissions = (bountyId, submissions, stopChecking=true, time=1000) => {
   const interval = setInterval(async function () {
-    const response = await getSubmissionsByBountyId(bountyId)
-    if (response && response.length > 0) {
-      // submissions = response
-      submissions.set(response)
-      if (stopChecking)
+    try {
+      const response = await getSubmissionsByBountyId(bountyId)
+      if (response && response.length > 0) {
+        submissions.set(response)
+        if (stopChecking)
+          clearInterval(interval)
+      } else {
         clearInterval(interval)
+      }
+    } catch(e) {
+      console.log('check error:', e)
+      clearInterval(interval)
     }
   }, time)
 }

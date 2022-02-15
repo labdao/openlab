@@ -1,4 +1,10 @@
 
+<!-- 
+
+  Instead of rendering a page route, this is a "generic" route that takes a workflow slug and
+  "renders" it into a generic component which maps the slug against specific components
+
+ -->
 <script context="module">
 	import { enhance } from '$lib/form';
 
@@ -41,9 +47,6 @@
 <script>
   import Render from '$lib/project/board/Render.svelte'
 
-  import {browser} from '$app/env'
-
   export let workflow, workflowSlug
-
   
 </script>

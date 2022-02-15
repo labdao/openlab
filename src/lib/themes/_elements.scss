@@ -14,18 +14,6 @@
 }
 
 
-._input-text {
-  @apply
-    block
-    w-full
-    rounded-md
-    bg-gray-100
-    border-transparent
-    border-2 border-transparent
-    hover:border-blue-500 hover:border-2
-    focus:outline-none focus:ring-0
-}
-
 
 
 
@@ -35,6 +23,66 @@ span.label, label {
   label > span {
     @apply text-gray-700 mb-2 inline-block
   }
+
+
+._form-label {
+  @apply inline-block mb-2 text-gray-700 block
+}
+._form-file {
+  @apply
+    block
+    w-full
+    px-3
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 
+    focus:bg-white 
+    focus:border-blue-600 
+    focus:outline-none
+}
+._form-submit {
+  @apply p-4 mt-4 transition cursor-pointer rounded-md bg-blue-500 hover:ease-in ease-out hover:bg-blue-600 text-white disabled:bg-slate-300 disabled:cursor-not-allowed
+}
+._form-input {
+  @apply
+    block
+    w-full
+    rounded-md
+    bg-gray-100
+    border-transparent
+    border-2 border-transparent
+    hover:border-blue-500 hover:border-2
+    focus:outline-none focus:ring-0
+    transition
+    ease-in-out
+}
+
+._form-textarea {
+  @apply 
+    w-full
+    rounded-md
+    bg-gray-100
+    border-transparent
+    border-2 border-transparent
+    hover:border-blue-500 hover:border-2
+    focus:outline-none focus:ring-0
+    transition
+    ease-in-out
+}
+
+
+
+
+
+
 
 
 

@@ -30,7 +30,7 @@
 
   <ul>
     {#each items as item}
-    <li>Name: {item.name}</li>
+    <li>Name: {item.name} - {item.filename}</li>
     {/each}
   </ul>
 
@@ -42,22 +42,20 @@
 		use:enhance={{
 			result: async (res, form) => {
         console.log('result ... ')
-				// const created = await res.json();
-				// todos = [...todos, created];
-
-				// form.reset();
 			}
 		}}
 	>
   <!-- enctype="multipart/form-data" -->
 
   <h3>form</h3>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John">
-  <input type="file" name="file">
-  <input type="submit" value="Submit">
+  <label class="_form-label" for="fname">First name:</label><br>
+  <input class="form-control _form-input mb-2" type="text" id="fname" name="fname" value="John">
+  <input class="form-control _form-file mb-2" type="file" name="file">
+  <input class="form-control _form-submit" type="submit" value="Submit">
 	</form>
   
+
+
 </div>
 
 

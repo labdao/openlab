@@ -20,29 +20,25 @@
       <div class="mt-8 max-w-md">
 
         <div class="mb-4" >
-          <label class="block">
-            <span class="label">Requester</span>
-            <input
-              type="text"
-              id="requester"
-              name="requester"
-              class="_input-text"
-              bind:value={requester}
-            >
-          </label>
+          <label for="requester" class="_form-label">Requester</label>
+          <input
+            type="text"
+            id="requester"
+            name="requester"
+            class="_form-input"
+            bind:value={requester}
+          >
         </div>
 
         <div class="mb-4">
-          <label class="block">
-            <span class="label">Genetic Sequence</span>
-            <textarea
-              id="sequence"
-              name="sequence"
-              bind:value={sequence}
-              class="_input-text"
-              rows="6"
-            ></textarea>
-          </label>
+          <label for="sequence" class="_form-label">Genetic Sequence</label>
+          <textarea
+            id="sequence"
+            name="sequence"
+            bind:value={sequence}
+            class="_form-textarea"
+            rows="6"
+          ></textarea>
         </div>
 
         <input type="submit" value="Get Reverse Complement" disabled="{isSubmitted}"
@@ -57,11 +53,11 @@
     </form>
   {/if}
 
-  {#if bounty}
+  <!-- {#if bounty}
     <div class="mt-16 block max-w-full">
       <Bounty {bounty} {Submissions} showLoadingSubmissions={isWaiting} showInput={true} showSubs={true} />
     </div>
-  {/if}
+  {/if} -->
 </div>
 
 
@@ -75,6 +71,7 @@
   import Bounty from '$lib/project/board/components/Bounty.svelte'
   import { checkForSubmissions } from '$lib/project/board/board'
   import { writable } from 'svelte/store'
+  import { goto } from '$app/navigation';
 
   export let workflow, bounty, isSubmitted, isWaiting
   export let sequence=JSON5.parse(workflow.InputExample).sequence||'CATATTAC', requester='yawnxyz'
@@ -99,6 +96,7 @@
 
     if(bountyRes.ok) {
       bounty = await bountyRes.json()
+      console.log('Bounty created:', bounty)
     }
 
     return true
@@ -125,13 +123,16 @@
       await createBounty()
       try {
         await pingEndpoint()
+
+        // instead of displaying the bounty here, route to a permanent bounty page
+        goto(`/bounties/${bounty.id}`)
       } catch(e) {}
 
       // checkSubmission()
-      checkForSubmissions(bounty.id, Submissions)
+      // checkForSubmissions(bounty.id, Submissions)
 
     } catch(err) {
       console.error('Request error:', err)
     }
-}
+  }
 </script>

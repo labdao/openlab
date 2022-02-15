@@ -1,5 +1,6 @@
 
 // import { cacheCheck, cacheSet } from "$utils/cache"
+import hash from 'object-hash'
 import { getTable, checkExistence, addRecord, flattenRecord, flattenTable, saveRecord } from "$utils/airfetch"
 
 
@@ -46,6 +47,22 @@ export const getLatestBountyBySlug = async (slug) => {
   return record
 }
 
+export const getBountiesByWorkflow = async (slug) => {
+  // get all open bounies, then filter manually (Airtable filter can't get by view)
+  let bounties = await getBounties()
+  let records = []
+
+  bounties.map(sub => {
+    if (sub['Workflows:Slug'] && sub['Workflows:Slug'].includes(slug)) {
+      records.push(sub)
+    }
+  })
+  return records
+}
+
+
+
+
 
 export const setBountyCompleteById = async (id) => {
   let record = await addRecord('Bounties', {Status: "Completed"}, id)
@@ -64,6 +81,8 @@ export const createBounty = async (data) => {
   //   'Workflows': data['workflows'],
   //   'Files': data['files'],
   // }
+
+  data["InputHash"] = hash(data.Input)
   let submitObject = data
 
   const record = await addRecord(

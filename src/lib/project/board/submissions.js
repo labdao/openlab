@@ -1,5 +1,6 @@
 
 
+import hash from 'object-hash'
 import JSON5 from 'json5'
 
 import { cacheCheck, cacheSet } from "$utils/cache"
@@ -28,7 +29,7 @@ export const getSubmissions = async () => {
 }
 
 
-
+// record ID
 export const getSubmissionById = async (id) => {
   let record = await checkExistence(id, 'Submissions', 'id')
 
@@ -44,6 +45,19 @@ export const getSubmissionsByBountyId = async (bountyId) => {
 
   submissions.map(sub => {
     if (sub['Bounties:Id'] && sub['Bounties:Id'].includes(bountyId)) {
+      records.push(sub)
+    }
+  })
+  return records
+}
+
+export const getSubmissionsByWorkflow = async (slug) => {
+  // get all open bounies, then filter manually (Airtable filter can't get by view)
+  let submissions = await getSubmissions()
+  let records = []
+
+  submissions.map(sub => {
+    if (sub['Bounties:Workflows:Slug'] && sub['Bounties:Workflows:Slug'].includes(slug)) {
       records.push(sub)
     }
   })
@@ -66,6 +80,8 @@ export const createSubmission = async (data) => {
   //   'Workflows': data['workflows'],
   //   'Files': data['files'],
   // }
+
+  data["OutputHash"] = hash(data.Output)
   let submitObject = data
 
   const record = await addRecord(
